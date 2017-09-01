@@ -1,0 +1,28 @@
+<% content_for :title, "Sign In" %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for(:session, url: sessions_path) do |f| %>
+    
+      <%= render 'shared/flash' %>
+
+      <p>
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: "form-control" %>
+      </p>
+
+      <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: "form-control" %>
+      </p>
+
+      <p>
+        <%= f.submit "Sign In", class: 'btn btn-primary form-control' %>
+      </p>
+
+      <p class="text-center">New user? <%= link_to "Sign Up here", new_user_path %></p>
+
+    <% end %>
+  </div>
+</div>

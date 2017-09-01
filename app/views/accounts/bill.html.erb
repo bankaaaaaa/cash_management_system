@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  	 <h3>Report for the
+  	 	<%= @month %>
+  	 	<%= @year %>
+  	 </h3>
+  	 <% if @transactions.empty? %>
+  	 	<p>NO TRANSACTION AVAILABLE</p>
+  	 <% else %>
+  	 	<table class="table">
+  	 		<thead  class="thead-inverse">
+	  	 		<tr>
+	  	 			<td>Description</td>
+	  	 			<td>Price</td>
+	  	 		</tr>
+	  	 	</thead>
+	  	 	<tbody>
+	  	 		<% @transactions.each do |t| %>
+	  	 			<tr>
+	  	 				<td><%= t.description %></td>
+	  	 				<td><%= t.price %></td>
+	  	 			</tr>
+	  	 		<% end %>
+	  	 		<tr>
+	  	 			<td>Total</td>
+	  	 			<td><%= @total %></td>
+	  	 		</tr>
+	  	 	</tbody>
+  	 	</table>
+  	 <% end %>
+  	 <%= link_to 'back', account_transactions_path(@account.id) %>
+  </div>
+</div>

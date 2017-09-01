@@ -1,0 +1,13 @@
+<div class="row">
+  	<div class="col-md-6 col-md-offset-3">
+		<h1><%= @acc.name %></h1>
+
+		<h4>Price</h4>
+		<p><%= @transaction.price %></p>
+
+		<h4>Description</h4>
+		<p><%= @transaction.description %></p>
+
+		<%= link_to 'back', account_transactions_path(@acc.id) %>
+	</div>
+</div>

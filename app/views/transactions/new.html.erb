@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+		<h1>Add Transaction</h1>
+
+		<%= form_for :transaction, url: account_transactions_path do |f| %>
+			<p>
+				<%= f.label :price %><br>
+				<%= f.text_field :price, class: "form-control" %>
+			</p>
+
+			<p>
+				<%= f.label :description %><br>
+				<%= f.text_area :description, class: "form-control" %>
+			</p>
+
+			<p>
+				<%= f.check_box :is_credit, class: "checkbox-inline" %><b>is_credit</b>
+				
+			</p>
+
+			<p>
+				<%= f.submit 'Save Transaction', :class => "btn btn-primary form-control" %>
+			</p>
+
+		<% end %>
+
+		<%= link_to 'back', account_transactions_path(@account.id) %>
+	</div>
+</div>
