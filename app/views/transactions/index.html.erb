@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 col-md-offset-2">
   		<h1><%= @account.name %></h1>
   		<%= render 'shared/flash' %>		
 		<h3>Expense Transaction</h3>
@@ -134,11 +134,11 @@
 				Filter according to month:<br><br>
 				<%= form_for :bill, url: account_bill_path, method: :get do |f| %>
 					<p>
-							<%= f.select :month, 1..12, class: "form-control" %>
+							<%= f.select :month, 01..12, class: "form-control" %>
 						 	<%= f.select :year, (Time.zone.now.year - 7)..(Time.zone.now.year + 1) %>
 					</p>
 					<p>
-						<%= radio_button_tag(:calculate, "monthly") %>
+						<%= radio_button_tag(:calculate, "monthly", checked: true) %>
 						<%= label_tag(:calculate_monthly, "Monthly") %>
 						<%= radio_button_tag(:calculate, "quarterly") %>
 						<%= label_tag(:calculate_quarterly, "Quarterly") %>

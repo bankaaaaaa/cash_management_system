@@ -3,19 +3,12 @@ class TransactionsController < ApplicationController
 
 	def index
 		@transactions = @account.transactions
-		@expence_total = 0
-		@expence = "false"
-		@credit = "false"
-		@credit_total = 0
-		@transactions.each do |t|
-			if t.is_credit != "0"
-				@credit_total += t.price
-				@credit = "true"
-			else
-				@expence_total += t.price
-				@expence = "true"
-			end
-		end
+		result = Transaction.g_t @transactions	
+		@credit = result[0]
+		@credit_total = result[1]
+		@expence = result[2]	
+		@expence_total = result[3]
+		
 	end
 
 	def show
