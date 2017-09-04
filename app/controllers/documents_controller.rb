@@ -26,7 +26,7 @@ class DocumentsController < ApplicationController
   			redirect_to account_transactions_path(@transaction.account_id)
   		else
   			render action: "documents/edit"
-  	end
+  		end
 	end
 
 	def destroy

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "users/new"
   get "accounts/index"
 
+  root "accounts#index"
+
   get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
