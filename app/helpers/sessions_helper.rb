@@ -5,7 +5,7 @@ module SessionsHelper
 
   	def current_user
     	@current_user ||= User.find_by(id: session[:user_id])
-  	end
+  	end    
 
   	# Returns true if the user is logged in, false otherwise.
   	def logged_in?
@@ -20,4 +20,15 @@ module SessionsHelper
   	def authenticate_user
     	redirect_to new_session_path unless current_user
   	end
+
+    def already_login
+      if logged_in?
+        #render plain: "hello".inspect
+        redirect_to accounts_path
+        #flash.now[:danger] = "You are already loged in"
+      end
+
+    end
+
+
 end
