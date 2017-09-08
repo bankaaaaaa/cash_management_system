@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-	before_action :authenticate_user 
+	before_action :authenticate_user
 
   def index
 		@accounts = Account.all
@@ -41,8 +41,10 @@ class AccountsController < ApplicationController
     if params[:calculate] == "monthly"
       @transactions = @account.transactions.where("cast(strftime('%Y', updated_at) as int) = ? AND cast(strftime('%m', updated_at) as int) = ? AND is_credit = ? ", params[:bill][:year], params[:bill][:month], "0")
     elsif params[:calculate] == "quarterly"
+      #render plain: (result-90).strftime("%Y-%m-%d %H:%M:%S").inspect
       @transactions = @account.transactions.where("updated_at >= ? AND updated_at <= ? AND is_credit = ? ", (result-90).strftime('%Y-%m-%d %H:%M:%S'), result.strftime('%Y-%m-%d %H:%M:%S'), "0")
     elsif params[:calculate] == "yearly"
+      #render plain: result.inspect
       @transactions = @account.transactions.where( "updated_at >= ? AND updated_at <= ? AND is_credit = ? ", result[1], result[0], "0" )
     end
 

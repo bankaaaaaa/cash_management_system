@@ -14,7 +14,7 @@ class Account < ApplicationRecord
 		    from_date = pastYear+'-'+month+'-'+'01'+' '+'00:00:00'
 		    return to_date, from_date
 		elsif interval == "quarterly"
-	    	d = Time.new(year.to_i,month.to_i,30)
+	    	d = DateTime.new(year.to_i,month.to_i,30)
 		end
 
 	end

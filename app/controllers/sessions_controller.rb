@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+	before_action :already_login, except: :destroy
+
+	def new
+	end
+
 	def create
 		user = User.find_by(email: params[:session][:email])
 		
@@ -18,4 +23,6 @@ class SessionsController < ApplicationController
 
 	def show
 	end
+
+	
 end
